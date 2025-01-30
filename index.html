@@ -108,6 +108,7 @@
         #thumbnailContainer {
             display: flex;
             justify-content: center;
+            flex-wrap: wrap;
             gap: 10px;
             margin-top: 20px;
             width: 100%;
@@ -160,18 +161,21 @@
 }
 
 @media (max-width: 480px) {
-    #nextArrow {
-        width: 75px;
-        height: 75px;
-    }
-
     #thumbnailContainer {
         max-width: 250px;
+        gap: 5px; /* Pienennetään gapia mobiilissa */
     }
     
     .thumbnail {
-        width: 70px;
+        width: calc(33.333% - 10px); /* Kolme kuvaa rivillä */
         height: 70px;
+        margin-bottom: 5px; /* Lisätään marginaalia rivien väliin */
+    }
+    
+    /* Viimeinen rivi keskitetään */
+    .thumbnail:last-child {
+        margin-left: auto;
+        margin-right: auto;
     }
 }
     </style>
